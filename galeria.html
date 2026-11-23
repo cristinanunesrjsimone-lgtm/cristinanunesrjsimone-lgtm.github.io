@@ -6,219 +6,196 @@
     <meta name="description" content="Galeria de Fotos Sanes Fruit - Distribuidora de Hortifruti (FLV) na Ceasa RJ, Pavilhão 77, Box 16.">
     <title>Galeria de Fotos | Sanes Fruit</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --sanes-grape-dark: #4A1942;   /* Uva Profundo */
-            --sanes-grape-mid: #6E2562;    /* Uva Vibrante */
-            --sanes-grape-tint: #F3EEF2;   /* Lilás Acinzentado Suave */
-            --sanes-green-fresh: #2E7D32;  /* Verde Frescor */
-            --sanes-green-hover: #236127;  /* Verde Frescor Escuro */
-            --sanes-green-sprout: #7CB342; /* Verde Broto */
-            --sanes-bg-organic: #FAF9F6;   /* Off-White Orgânico */
-            --sanes-ink: #22252A;          /* Grafite Escuro */
-            --sanes-muted: #646B73;        /* Cinza Médio */
-            --sanes-white: #FFFFFF;
+            --uva-suave: #6A2A5E;
+            --uva-escura: #4A1942;
+            --uva-lilas: #9A838B;
+            --verde-hortela: #4A9F5A;
+            --verde-limao: #8DCF7B;
+            --branco-puro: #FFFFFF;
+            --branco-neve: #FAFAFA;
+            --texto-escuro: #242424;
+            --texto-suave: #5E5E64;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--sanes-bg-organic);
-            color: var(--sanes-ink);
+            background-color: var(--branco-neve);
+            color: var(--texto-escuro);
             scroll-behavior: smooth;
         }
 
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--sanes-green-fresh);
-            color: var(--sanes-white);
-            padding: 8px 14px;
-            z-index: 1001;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 0 0 8px 0;
-        }
-        .skip-link:focus { top: 0; }
-
-        /* Barra Superior Institucional */
-        .topbar-sanes {
-            background: var(--sanes-grape-dark);
-            color: rgba(255, 255, 255, 0.92);
-            font-size: 0.8rem;
+        /* Barra Superior do Ceasa RJ na Cor de Uva */
+        .top-info {
+            background-color: var(--uva-suave);
+            color: var(--branco-puro);
+            font-size: 0.82rem;
             padding: 7px 0;
         }
-        .topbar-sanes a {
-            color: var(--sanes-green-sprout);
-            text-decoration: none;
+        .top-info strong {
+            color: var(--verde-limao);
+        }
+        .top-info a {
+            color: var(--branco-puro);
             font-weight: 700;
+            text-decoration: none;
             white-space: nowrap;
         }
-        .topbar-sanes a:hover { text-decoration: underline; }
+        .top-info a:hover {
+            color: var(--verde-limao);
+            text-decoration: underline;
+        }
 
-        /* Navbar compacta e sem quebra de texto */
+        /* Navbar Clean */
         .navbar {
-            background: var(--sanes-white);
-            border-bottom: 4px solid var(--sanes-grape-dark);
-            padding: 0.45rem 0;
-            min-height: 74px;
-            box-shadow: 0 4px 14px rgba(74, 25, 66, 0.06);
+            background-color: var(--branco-puro);
+            border-bottom: 3px solid var(--uva-suave);
+            padding: 0.65rem 0;
         }
         .navbar-brand {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             padding: 0;
             margin-right: 16px;
         }
         .navbar-brand .logo-img {
-            height: 62px;
+            height: 54px;
             width: auto;
             max-width: none !important;
             object-fit: contain;
             display: block;
         }
         .nav-link {
-            color: var(--sanes-grape-dark) !important;
+            color: var(--uva-suave) !important;
             font-weight: 600;
             font-size: 0.95rem;
-            padding: 0.45rem 0.75rem !important;
+            padding: 0.45rem 0.8rem !important;
             white-space: nowrap;
-            transition: 0.2s;
         }
         .nav-link:hover, .nav-link.active {
-            color: var(--sanes-green-fresh) !important;
+            color: var(--verde-hortela) !important;
         }
 
         .btn-sanes {
-            background: var(--sanes-green-fresh);
-            color: var(--sanes-white);
+            background-color: var(--verde-hortela);
+            color: var(--branco-puro);
             border: none;
             padding: 10px 22px;
-            border-radius: 10px;
-            font-weight: 800;
+            border-radius: 8px;
+            font-weight: 700;
             font-size: 0.9rem;
             text-decoration: none;
             white-space: nowrap;
             flex-shrink: 0;
             transition: 0.25s;
-            box-shadow: 0 5px 14px rgba(46, 125, 50, 0.22);
         }
-        .btn-sanes:hover, .btn-sanes:focus {
-            background: var(--sanes-green-hover);
+        .btn-sanes:hover {
+            background-color: #3b8449;
+            color: var(--branco-puro);
             transform: translateY(-1px);
-            color: var(--sanes-white);
         }
 
-        /* Cabeçalho da Página */
+        /* Cabeçalho da Galeria */
         .page-header {
             background:
-                linear-gradient(105deg, rgba(74, 25, 66, 0.90) 0%, rgba(74, 25, 66, 0.78) 58%, rgba(46, 125, 50, 0.72) 100%),
+                linear-gradient(95deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.88) 52%, rgba(106, 42, 94, 0.22) 100%),
                 url('img/galeria/1.jpeg');
             background-size: cover;
             background-position: center;
-            color: var(--sanes-white);
-            padding: 68px 0;
-            text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
+            padding: 58px 0;
+            border-bottom: 1px solid #EAE4E9;
         }
 
-        .badge-ceasa {
+        .pill-uva {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.14);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: var(--sanes-green-sprout);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 6px 14px;
+            background-color: #F4ECF2;
+            color: var(--uva-suave);
+            border: 1px solid #DECBD9;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 5px 14px;
             border-radius: 999px;
-            margin-bottom: 14px;
-            text-shadow: none;
+            margin-bottom: 12px;
         }
 
         .fw-800 { font-weight: 800; }
+        .text-uva { color: var(--uva-suave); }
 
-        /* Grid de Imagens */
+        /* Grid de Fotos */
         .img-card {
             position: relative;
             overflow: hidden;
-            border-radius: 16px;
-            height: 250px;
+            border-radius: 14px;
+            height: 245px;
             cursor: pointer;
-            background: var(--sanes-white);
-            box-shadow: 0 6px 18px rgba(74, 25, 66, 0.07);
-            border: 3px solid var(--sanes-white);
-            transition: all 0.3s ease;
+            background-color: var(--branco-puro);
+            border: 2px solid #EAE4E9;
+            box-shadow: 0 4px 12px rgba(106, 42, 94, 0.05);
+            transition: 0.25s;
         }
         .img-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 28px rgba(74, 25, 66, 0.16);
-            border-color: var(--sanes-green-sprout);
+            transform: translateY(-5px);
+            border-color: var(--verde-hortela);
+            box-shadow: 0 10px 22px rgba(74, 159, 90, 0.14);
         }
         .img-galeria {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.35s ease;
         }
         .img-card:hover .img-galeria {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
-        .img-overlay {
+        .img-caption-bar {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(74, 25, 66, 0.84) 0%, rgba(74, 25, 66, 0.15) 45%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.94);
+            border-top: 1px solid #EAE4E9;
+            padding: 8px 12px;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: space-between;
-            padding: 14px 16px;
-            color: var(--sanes-white);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--uva-suave);
         }
-        .img-card:hover .img-overlay {
-            opacity: 1;
-        }
-        .tag-zoom {
-            background: var(--sanes-green-fresh);
-            color: var(--sanes-white);
+        .badge-limao {
+            background-color: var(--verde-limao);
+            color: #1D3B22;
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 4px 10px;
+            padding: 2px 9px;
             border-radius: 999px;
         }
 
-        /* Faixa CTA Intermediária */
-        .cta-banner {
-            background: linear-gradient(135deg, var(--sanes-grape-dark), var(--sanes-grape-mid));
-            color: var(--sanes-white);
-            border-radius: 20px;
-            padding: 36px 28px;
-            box-shadow: 0 12px 30px rgba(74, 25, 66, 0.14);
+        /* Bloco de Orçamento Rápido por WhatsApp */
+        .quote-box {
+            background-color: var(--branco-puro);
+            border: 1px solid #E4DCE2;
+            border-left: 5px solid var(--uva-suave);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
         }
 
-        /* Modal e Carrossel */
+        /* Modal */
         .modal-content {
-            background: rgba(24, 10, 22, 0.96);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 18px;
+            background-color: #1A1219;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 16px;
         }
         .carousel-item img {
-            max-height: 78vh;
+            max-height: 76vh;
             object-fit: contain;
             margin: auto;
-        }
-        .carousel-control-prev, .carousel-control-next { width: 6%; }
-
-        .badge-contador {
-            background: var(--sanes-grape-dark);
-            border: 1px solid var(--sanes-green-sprout);
-            color: var(--sanes-white);
-            font-weight: 600;
-            padding: 7px 14px;
-            border-radius: 999px;
         }
 
         /* Botão Flutuante WhatsApp */
@@ -226,37 +203,34 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background: var(--sanes-green-fresh);
+            background-color: var(--verde-hortela);
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+            box-shadow: 0 6px 16px rgba(74, 159, 90, 0.35);
             z-index: 1000;
             transition: 0.25s;
         }
         .whatsapp-btn:hover {
-            background: var(--sanes-green-hover);
-            transform: scale(1.08);
+            background-color: #3b8449;
+            transform: scale(1.07);
         }
 
         footer {
-            background: var(--sanes-grape-dark);
-            color: var(--sanes-white);
-            padding: 48px 0;
+            background-color: var(--branco-puro);
+            border-top: 3px solid var(--uva-suave);
+            color: var(--texto-suave);
+            padding: 38px 0;
             margin-top: 60px;
-            border-top: 4px solid var(--sanes-green-sprout);
         }
     </style>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Pular para a galeria de fotos</a>
-
-    <!-- Barra Superior com Novo Endereço Ceasa RJ -->
-    <div class="topbar-sanes">
+    <div class="top-info">
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-1 text-center text-md-start">
             <div>
                 <strong>Ceasa RJ:</strong> Av. Brasil, 19.001 - Irajá, Rio de Janeiro - RJ, 21230-000 • <strong>Pavilhão 77, Box 16</strong>
@@ -279,7 +253,6 @@
                 <div class="collapse navbar-collapse" id="navSanes">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
                         <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#quem-somos">Quem Somos</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#">Nossas Fotos</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.html#diretrizes">Diretrizes</a></li>
                         <li class="nav-item mt-2 mt-lg-0">
@@ -291,65 +264,63 @@
         </nav>
     </header>
 
-    <section class="page-header text-center">
+    <section class="page-header">
         <div class="container">
-            <span class="badge-ceasa">🍇 Seleção Diária na Ceasa RJ • Pavilhão 77, Box 16</span>
-            <h1 class="display-4 fw-800 mb-2">Galeria de Qualidade</h1>
-            <p class="lead mb-0 opacity-90">Conheça o padrão Sanes Fruit em cada entrega para o seu negócio</p>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="pill-uva">Ceasa RJ • Av. Brasil, 19.001 - Irajá • Pavilhão 77, Box 16</span>
+                    <h1 class="display-4 fw-800 text-uva mb-2">Galeria de Qualidade</h1>
+                    <p class="lead mb-0" style="color: var(--texto-escuro); font-weight: 500;">
+                        Conheça o padrão Sanes Fruit em cada entrega de frutas, legumes e verduras no Rio de Janeiro.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main id="main-content" class="container py-5">
-        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
-            <div>
-                <h2 class="h4 fw-800 mb-1" style="color: var(--sanes-grape-dark);">Nosso Padrão FLV em Imagens</h2>
-                <p class="small text-muted mb-0">Clique em qualquer foto para ampliar e navegar pelo catálogo completo.</p>
-            </div>
-            <span class="badge rounded-pill px-3 py-2 align-self-start align-self-md-auto" style="background: var(--sanes-grape-tint); color: var(--sanes-grape-dark); font-weight: 700;">
-                30 registros reais de qualidade
-            </span>
-        </div>
-
+    <main class="container py-5">
         <div class="row g-4 justify-content-center" id="galeria-grid"></div>
 
-        <!-- Chamada para Orçamento via WhatsApp -->
-        <div class="cta-banner mt-5">
+        <!-- Pedido de Orçamento por WhatsApp -->
+        <section class="quote-box mt-5">
             <div class="row align-items-center g-4">
-                <div class="col-lg-8 text-center text-lg-start">
-                    <h3 class="fw-800 h4 mb-2">Quer esse padrão de hortifruti no seu estabelecimento?</h3>
-                    <p class="mb-0 text-white-50">
-                        Atendemos restaurantes, mercados, hotéis e cozinhas industriais com frete grátis em todo o estado do Rio de Janeiro.
+                <div class="col-lg-8">
+                    <span class="pill-uva mb-2">Orçamento Direto via WhatsApp</span>
+                    <h2 class="h4 fw-800 text-uva mb-2">Solicite sua cotação com a Sanes Fruit</h2>
+                    <p class="text-muted mb-1">
+                        <strong>Endereço:</strong> Av. Brasil, 19.001 - Irajá, Rio de Janeiro - RJ, 21230-000 — Ceasa RJ, Pavilhão 77, Box 16.
+                    </p>
+                    <p class="small text-muted mb-0">
+                        Atendimento comercial pelo WhatsApp <strong>(21) 99147-3130</strong>.
                     </p>
                 </div>
-                <div class="col-lg-4 text-center text-lg-end">
-                    <a href="https://wa.me/5521991473130?text=Ol%C3%A1%2C%20Sanes%20Fruit!%20Vi%20a%20galeria%20de%20fotos%20no%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+                <div class="col-lg-4 text-lg-end">
+                    <a href="https://wa.me/5521991473130?text=Ol%C3%A1%2C%20Sanes%20Fruit!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20hortifruti."
                        target="_blank" rel="noopener noreferrer"
-                       class="btn btn-sanes">
-                        PEDIR ORÇAMENTO NO WHATSAPP
+                       class="btn btn-sanes py-3 px-4 w-100 w-lg-auto">
+                        SOLICITAR ORÇAMENTO NO WHATSAPP
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Modal Carrossel -->
+    <!-- Modal e Carrossel -->
     <div class="modal fade" id="modalGaleria" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-header border-0 pb-0">
-                    <span class="text-white-50 small fw-semibold">Sanes Fruit • Ceasa RJ (Pavilhão 77, Box 16)</span>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    <span class="text-white-50 small">Sanes Fruit • Ceasa RJ (Pavilhão 77, Box 16)</span>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-3">
                     <div id="carouselSanes" class="carousel slide" data-bs-interval="false">
                         <div class="carousel-inner" id="carousel-items"></div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselSanes" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselSanes" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Próxima</span>
                         </button>
                     </div>
                 </div>
@@ -359,19 +330,15 @@
 
     <footer>
         <div class="container text-center">
-            <p class="fw-800 h4 mb-2">Sanes Fruit</p>
-            <p class="small mb-2" style="color: var(--sanes-green-sprout);">
-                Av. Brasil, 19.001 - Irajá, Rio de Janeiro - RJ, 21230-000 | Ceasa RJ — Pavilhão 77, Box 16
-            </p>
-            <p class="mb-1">© 2026 Sanes Fruit - Distribuidora de Alimentos LTDA. | CNPJ: 57.931.153/0001-70</p>
-            <p class="mb-1">Whatsapp 55 21 99147-3130</p>
+            <p class="fw-800 h5 text-uva mb-1">Sanes Fruit - Distribuidora de Alimentos LTDA.</p>
+            <p class="small mb-1">Av. Brasil, 19.001 - Irajá, Rio de Janeiro - RJ, 21230-000 | Ceasa RJ — Pavilhão 77, Box 16</p>
+            <p class="small mb-1">WhatsApp: 55 21 99147-3130 | CNPJ: 57.931.153/0001-70</p>
             <p class="small opacity-75 mb-0">Qualidade e transparência no Rio de Janeiro.</p>
         </div>
     </footer>
 
-    <!-- Botão Flutuante WhatsApp -->
     <a href="https://wa.me/5521991473130?text=Ol%C3%A1%2C%20Sanes%20Fruit!%20Gostaria%20de%20fazer%20um%20pedido."
-       class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+       class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Sanes Fruit">
         <svg width="32" height="32" fill="white" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
     </a>
 
@@ -395,21 +362,21 @@
                     <div class="col-6 col-md-4 col-lg-3">
                         <div class="img-card" onclick="abrirFoto(${i - 1})">
                             <img src="${caminhoFoto}" class="img-galeria" alt="Foto Sanes ${i}" loading="lazy">
-                            <div class="img-overlay">
-                                <span class="small fw-bold">Sanes Fruit #${i}</span>
-                                <span class="tag-zoom">Ampliar</span>
+                            <div class="img-caption-bar">
+                                <span>Foto ${i}</span>
+                                <span class="badge-limao">Ampliar</span>
                             </div>
                         </div>
                     </div>
                 `;
 
-                const msgWhatsapp = encodeURIComponent(`Olá, Sanes Fruit! Vi a Foto #${i} na galeria do site e gostaria de solicitar uma cotação.`);
+                const textoWhats = encodeURIComponent(`Olá, Sanes Fruit! Vi a Foto #${i} na galeria do site e gostaria de solicitar orçamento.`);
                 carouselHtml += `
                     <div class="carousel-item ${i === 1 ? 'active' : ''}">
                         <img src="${caminhoFoto}" class="d-block w-100 rounded-3" alt="Foto Sanes ${i}">
                         <div class="carousel-caption d-flex flex-column flex-sm-row align-items-center justify-content-center gap-2">
-                            <span class="badge-contador">Foto ${i} / ${totalFotos}</span>
-                            <a href="https://wa.me/5521991473130?text=${msgWhatsapp}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-sanes py-1 px-3">
+                            <span class="badge bg-dark bg-opacity-75 px-3 py-2">Foto ${i} / ${totalFotos}</span>
+                            <a href="https://wa.me/5521991473130?text=${textoWhats}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-sanes px-3 py-1">
                                 Cotar no WhatsApp
                             </a>
                         </div>
