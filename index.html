@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sanes Fruit - Distribuidora de Alimentos LTDA. Especialista em FLV (Hortifruti) no Rio de Janeiro. Ceasa RJ - Pavilhão 77, Box 16.">
+    <meta name="description" content="Sanes Fruit: fornecimento e distribuição de frutas, legumes e verduras para empresas no Rio de Janeiro. Qualidade, pontualidade e atendimento. Ceasa RJ, Pavilhão 77, Box 16.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Sanes Fruit | Qualidade direto do campo para seu negócio">
+    <meta property="og:description" content="Distribuição de frutas, legumes e verduras com excelência e transparência no Rio de Janeiro.">
+    <meta property="og:image" content="banner.png">
+    <meta property="og:type" content="website">
     <meta name="author" content="Sanes Fruit">
-    <title>Sanes Fruit | Qualidade que seu negócio merece</title>
+    <title>Sanes Fruit | Distribuidora de Hortifruti no RJ</title>
+    <link rel="preload" as="image" href="banner.png">
 
     <link rel="icon" type="image/svg+xml" href="icone.svg">
     <link rel="shortcut icon" type="image/svg+xml" href="icone.svg">
@@ -136,10 +142,11 @@
 
         .hero {
             background:
-                linear-gradient(90deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.58) 48%, rgba(255, 255, 255, 0.08) 100%),
-                url('banner.png');
+                linear-gradient(90deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.42) 48%, rgba(255, 255, 255, 0.04) 100%),
+                url('./banner.png');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-repeat: no-repeat;
             padding: 84px 0;
             border-bottom: 1px solid #EAE4E9;
         }
@@ -339,8 +346,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8">
                         <span class="pill-uva">Ceasa RJ • Av. Brasil, 19.001 - Irajá • Pavilhão 77, Box 16</span>
-                        <h1 id="dyn_titulo" class="display-4 fw-800 text-uva mb-3">Carregando...</h1>
-                        <p id="dyn_subtitulo" class="lead mb-4" style="color: var(--texto-escuro); font-weight: 500;"></p>
+                        <h1 id="dyn_titulo" class="display-4 fw-800 text-uva mb-3">Qualidade direto do campo para seu negócio.</h1>
+                        <p id="dyn_subtitulo" class="lead mb-4" style="color: var(--texto-escuro); font-weight: 500;">Distribuição de frutas, legumes e verduras com excelência e transparência em todo o Rio de Janeiro.</p>
                         <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
                             <a href="#contato" class="btn btn-sanes">QUERO FAZER MEU PEDIDO</a>
                             <a href="#quem-somos" class="btn btn-outline-uva">CONHEÇA A SANES FRUIT</a>
@@ -380,6 +387,21 @@
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produtos" class="py-5 bg-white">
+            <div class="container py-3">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <span class="pill-uva">Conheça nossos produtos</span>
+                        <h2 class="fw-800 text-uva mb-3">Frutas, legumes e verduras selecionados para o seu negócio</h2>
+                        <p class="lead mb-0">Confira nossa galeria com fotos reais dos produtos e conheça melhor a variedade que a Sanes Fruit oferece.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="galeria.html" class="btn btn-sanes">VER GALERIA DE PRODUTOS</a>
                     </div>
                 </div>
             </div>
@@ -501,6 +523,7 @@
                 </div>
                 <div class="col-md-5 text-md-end">
                     <p class="small mb-1 fw-semibold">WhatsApp: +55 21 99147-3130</p>
+                    <p class="small mb-1"><a href="https://www.instagram.com/sanesfruit/" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none">Instagram: @sanesfruit</a></p>
                     <p class="small mb-0 opacity-75">© 2026 Distribuidora de Alimentos LTDA.</p>
                 </div>
             </div>
@@ -538,29 +561,30 @@
             btn.disabled = true;
             btn.innerHTML = "Abrindo WhatsApp...";
 
-            const texto = `*Nova Solicitação de Cotação - Sanes Fruit*%0A` +
-                          `*Unidade:* Ceasa RJ - Pavilhão 77, Box 16%0A%0A` +
-                          `*Nome/Empresa:* ${nome}%0A` +
-                          `*WhatsApp:* ${telefone}%0A` +
+            const texto = `*Nova Solicitação de Cotação - Sanes Fruit*\n` +
+                          `*Unidade:* Ceasa RJ - Pavilhão 77, Box 16\n\n` +
+                          `*Nome/Empresa:* ${nome}\n` +
+                          `*WhatsApp:* ${telefone}\n` +
                           `*Pedido:* ${mensagem}`;
 
             const numeroWhatsApp = "5521991473130";
-            const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
 
-            window.open(url, '_blank');
+            window.open(url, '_blank', 'noopener,noreferrer');
 
             const formData = new FormData(this);
             fetch('api/index.php?route=post_budget', { method: 'POST', body: formData })
-                .then(() => {
+                .then(response => {
+                    if (!response.ok) throw new Error('Falha no envio ao servidor');
                     feedback.className = "mt-3 fw-bold";
                     feedback.style.color = "var(--verde-hortela)";
-                    feedback.innerText = "WhatsApp aberto! Verifique a nova aba.";
+                    feedback.innerText = "Solicitação registrada. Verifique o WhatsApp aberto para concluir o envio.";
                     this.reset();
                 })
                 .catch(() => {
                     feedback.className = "mt-3 fw-bold";
                     feedback.style.color = "var(--verde-hortela)";
-                    feedback.innerText = "WhatsApp aberto!";
+                    feedback.innerText = "WhatsApp aberto. Caso não tenha sido registrada no site, conclua o envio pelo WhatsApp.";
                 })
                 .finally(() => {
                     btn.disabled = false;
