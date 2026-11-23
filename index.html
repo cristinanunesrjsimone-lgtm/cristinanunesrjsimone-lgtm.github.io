@@ -66,20 +66,20 @@
             text-decoration: underline;
         }
 
-        /* Navbar Clean */
+        /* Navbar Clean com Logo Maior */
         .navbar {
             background-color: var(--branco-puro);
             border-bottom: 3px solid var(--uva-suave);
-            padding: 0.65rem 0;
+            padding: 0.7rem 0;
         }
         .navbar-brand {
             display: inline-flex;
             align-items: center;
             padding: 0;
-            margin-right: 16px;
+            margin-right: 18px;
         }
         .navbar-brand .logo-img {
-            height: 54px;
+            height: 74px;
             width: auto;
             max-width: none !important;
             object-fit: contain;
@@ -238,28 +238,34 @@
             position: fixed;
             bottom: 24px;
             right: 24px;
-            background-color: var(--verde-hortela);
+            background-color: var(--uva-suave);
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 16px rgba(74, 159, 90, 0.35);
+            box-shadow: 0 6px 16px rgba(106, 42, 94, 0.35);
             z-index: 1000;
             transition: 0.25s;
         }
         .whatsapp-btn:hover {
-            background-color: #3b8449;
+            background-color: var(--uva-escura);
             transform: scale(1.07);
         }
 
+        /* Rodapé com Fundo Verde da Paleta */
         footer {
-            background-color: var(--branco-puro);
-            border-top: 3px solid var(--uva-suave);
-            color: var(--texto-suave);
-            padding: 38px 0;
+            background-color: var(--verde-hortela);
+            border-top: 4px solid var(--uva-suave);
+            color: var(--branco-puro);
+            padding: 44px 0;
         }
+        footer .footer-destaque {
+            color: #EAFBE7;
+            font-weight: 600;
+        }
+
         .check-icon {
             color: var(--verde-hortela);
             margin-right: 10px;
@@ -465,13 +471,13 @@
 
     <footer>
         <div class="container text-center">
-            <p class="fw-800 h5 text-uva mb-1">Sanes Fruit</p>
-            <p class="small mb-1">
+            <p class="fw-800 h5 mb-1">Sanes Fruit</p>
+            <p class="small mb-1 footer-destaque">
                 Av. Brasil, 19.001 - Irajá, Rio de Janeiro - RJ, 21230-000 | Ceasa RJ — Pavilhão 77, Box 16
             </p>
             <p class="small mb-1">© 2026 Distribuidora de Alimentos LTDA.</p>
             <p class="small mb-1">Whatsapp 55 21 99147-3130</p>
-            <p class="small opacity-75 mb-0">Rio de Janeiro - RJ | Qualidade, Pontualidade e Transparência</p>
+            <p class="small opacity-90 mb-0">Rio de Janeiro - RJ | Qualidade, Pontualidade e Transparência</p>
         </div>
     </footer>
 
