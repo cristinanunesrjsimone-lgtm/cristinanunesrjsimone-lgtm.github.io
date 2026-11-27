@@ -1,0 +1,1 @@
+Imagens originais em backend/uploads/institucional. Fotos de produtos em backend/uploads/produtos.

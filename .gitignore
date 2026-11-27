@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+*.log
+.vscode/
+certificados/
+*.pem
+*.crt
+*.key
+*.pfx
+*.p12
